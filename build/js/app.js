@@ -5,11 +5,9 @@ var Check = require('./../js/check-interface.js').Check;
 $(document).ready(function(){
   $('#create-game').submit(function(event){
     event.preventDefault();
-
     var pairs = $('#pairs').val();
     $('.initiate').hide();
     $('.game').show();
-
     var list = Card(pairs);
     list.forEach(function(i)
     {
@@ -21,18 +19,17 @@ $(document).ready(function(){
       var result;
     $(".gameCard").click(function(event){
       event.preventDefault();
-      $(this).css("background", "white");
-      $(this).append("<p class='paragraph" + this.id + "'>" + this.id + "</p>");
 
-
+      $(this).append("<p class='paragraph" + this.id + "'></p>");
       if(count === 0)
       {
         firstClick = this.id;
-
+        $(this).css("background-image", "url('./img/" + this.id + ".jpg')");
       }
       else
       {
         secondClick = this.id;
+        $(this).css("background-image", "url('./img/" + this.id + ".jpg')");
       }
       if(count === 0)
       {
@@ -41,30 +38,27 @@ $(document).ready(function(){
       else
         {
           result = Check(firstClick, secondClick);
-          console.log(result);
           if(result !== true)
           {
             $(".paragraph" + firstClick ).remove();
+            $("." + firstClick).css("background-image", "url('./img/background.jpg')");
+            $("." + firstClick).css("background-repeat", "no-repeat");
+            $("." + firstClick).css("background-size", "cover");
             $(".paragraph" + secondClick ).remove();
+            $("." + secondClick).css("background-image", "url('./img/background.jpg')");
+            $("." + secondClick).css("background-repeat", "no-repeat");
+            $("." + secondClick).css("background-size", "cover");
           }
           else {
             {
               $("#" + firstClick).off();
+              $("#" + secondClick).off();
             }
           }
           count = 0;
         }
-        console.log("inner" +count);
-      console.log("first: " + firstClick);
-
-      console.log("first:" + firstClick + "second: " + secondClick);
-
-
-
     });
-    console.log(count);
   });
-
 });
 
 },{"./../js/cards-interface.js":2,"./../js/check-interface.js":3}],2:[function(require,module,exports){
