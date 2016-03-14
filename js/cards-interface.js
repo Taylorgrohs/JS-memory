@@ -26,4 +26,4 @@ exports.Card = function(pairs) {
   }
   var randomList = shuffle(list);
   return randomList;
-}
+};
