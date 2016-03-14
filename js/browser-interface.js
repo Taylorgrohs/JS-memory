@@ -10,7 +10,7 @@ $(document).ready(function(){
     var list = Card(pairs);
     list.forEach(function(i)
     {
-     $(".board").append("<div id='" + i + "' class='col-md-4 gameCard " + i +"'>" + "</div>");
+     $(".board").append("<div id='" + i + "' class='gameCard " + i +"'>" + "</div>");
     });
       var count = 0;
       var firstClick;
