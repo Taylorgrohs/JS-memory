@@ -1,0 +1,13 @@
+#1 {
+  background-image: url();
+}
+.game {
+  display: none;
+}
+
+.gameCard {
+  background-color: blue;
+  width: 100px;
+  height: 100px;
+  border: solid 10px black;
+}
